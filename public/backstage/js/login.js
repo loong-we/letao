@@ -1,4 +1,5 @@
 ; (function () {
+
  // 表单神器第一步：引包
  // 第二步：初始化
  //使用表单校验插件
@@ -74,7 +75,7 @@
 
  // 表单重置
  $("[type='reset']").on("click", function () {
+
   $("#form").data("bootstrapValidator").resetForm()
  })
- Nprogress.start()
 })();
