@@ -11,3 +11,8 @@ $(document).ajaxStop(function () {
   NProgress.done()
  },500)
 })
+
+$(".lt_list").on("click", function () {
+ $(".hidebox").toggle(300)
+ console.log();
+})
