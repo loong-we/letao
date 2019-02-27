@@ -73,8 +73,9 @@
     <li class="active">一级管理</li>
    </ol>
 
+   <!-- 添加按钮 -->
    <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-lg" id="addFirst">添加分类</button>
-   
+
    <!-- 一级菜单的模态框 -->
    <div class="modal fade" tabindex="-1" id="firstModal">
     <div class="modal-dialog">
@@ -84,11 +85,11 @@
        <h4 class="modal-title">添加分类</h4>
       </div>
       <div class="modal-body">
-
-       
-       <div class="row">
-        <input type="text" class="modal-body">
-       </div>
+       <form>
+        <div class="form-group">
+         <input type="text" class="form-control" id="recipient-name" placeholder="请输入一级分类">
+        </div>
+       </form>
       </div>
       <div class="modal-footer">
        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
