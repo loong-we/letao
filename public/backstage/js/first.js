@@ -20,9 +20,13 @@
    }
   })
  }
-
+ 
  // 给模态框注册点击事件
  $("#addFirst").on("click",function(){
   $("#firstModal").modal("show")
  })
 })();
+
+
+
+

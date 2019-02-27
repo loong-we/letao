@@ -27,7 +27,7 @@ $(".leftBar").on("click", function () {
 // 注册退出事件
 $(".rightBar").on("click", function (e) {
  // 跳出模态框
- $('.modal').modal('show');
+ $('#allModal').modal('show');
 })
 
 $(".logOut").on("click", function () {
