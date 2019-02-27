@@ -15,8 +15,6 @@
  <body class="bgc">
 
 
-
-
   <div class="lt_aside">
    <!-- 标题 -->
    <div class="title">
@@ -30,18 +28,19 @@
    <!-- 导航 -->
    <ul>
     <li>
-     <a href="./user.html">
+     <a href="javascript:;" class="current">
       <i class="glyphicon glyphicon-user"></i>
       <span>用户管理</span>
      </a>
     </li>
+
     <li>
-     <a href="javascript:;">
+     <a href="javascript:;" class="lt_list">
       <i class="glyphicon glyphicon-list"></i>
       <span>分类管理</span>
      </a>
-     <div class="hidebox">
-      <a href="javascript:;" class="current">
+     <div class="hidebox" style="display:none">
+      <a href="./first.html">
        <span>一级菜单</span>
       </a>
       <a href="./second.html">
@@ -57,18 +56,114 @@
     </li>
    </ul>
   </div>
-  <div class="lt_content"></div>
+
+  <div class="topBar">
+   <a href="javascript:;" class="pull-left leftBar">
+    <i class="glyphicon glyphicon-align-justify"></i>
+   </a>
+   <a href="javascript:;" class="pull-right rightBar">
+    <i class="glyphicon glyphicon-log-out"></i>
+   </a>
+  </div>
+
+  <div class="lt_content">
+   <ol class="breadcrumb">
+    <li><a href="./index.html">管理系统</a></li>
+    <li class="active">分类管理</li>
+    <li class="active">一级管理</li>
+   </ol>
+
+   <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-lg" id="addFirst">添加分类</button>
+   
+   <!-- 一级菜单的模态框 -->
+   <div class="modal fade" tabindex="-1" id="firstModal">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+       <h4 class="modal-title">添加分类</h4>
+      </div>
+      <div class="modal-body">
+
+       
+       <div class="row">
+        <input type="text" class="modal-body">
+       </div>
+      </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+       <button type="button" class="btn btn-primary">添加</button>
+      </div>
+     </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+   </div><!-- /.modal -->
+
+
+   <div class="lt_table">
+    <table class="table table-bordered table-hover">
+     <thead>
+      <tr>
+       <th width="20%">序号</th>
+       <th width="80%">用户名</th>
+
+      </tr>
+     </thead>
+     <tbody>
+     </tbody>
+    </table>
+
+   </div>
+   <div class="page text-right">
+    <ul id="paginator"></ul>
+   </div>
+  </div>
+  <!-- 登录退出模态框 -->
+  <div class="modal fade" tabindex="-1" id="logModal">
+   <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+     <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+      <h4 class="modal-title">温馨提示</h4>
+     </div>
+     <div class="modal-body">
+
+      <p style="color:#A94442">
+       <i class="glyphicon glyphicon-info-sign"></i>
+       您确定要退出后台管理系统吗？
+      </p>
+     </div>
+     <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      <button type="button" class="btn btn-primary logOut">退出</button>
+     </div>
+    </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
 
 
 
+  <script type="text/html" id="firstTable">
+   {{each rows v i}}
+   <tr>
+    <td>{{(page -1)*size+i+1}}</td>
+    <td>{{v.categoryName}}</td>
+  
+   </tr>
+   {{/each}}
+  </script>
 
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/echarts/echarts.min.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
   <script src="./js/login.js"></script>
   <script src="./js/commen.js"></script>
+  <script src="./js/first.js"></script>
+
  </body>
 
 </html>

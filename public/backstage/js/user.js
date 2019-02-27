@@ -51,12 +51,9 @@
   // 弹出层显示
   $('#forbModal').modal('show');
   // 获取点击的id
-  console.log($(this).parent());
   var id = $(this).parent().data("id")
   // var isDelete = $(this).parent().data("isdelete")
   var isDelete = $(this).hasClass("btn-success") ? 1 : 0;
-  console.log(id);
-  console.log(isDelete);
   // 一个按钮上只能绑定一个事件
   $(".forbSure").off("click").on("click", function () {
    console.log(132123);
