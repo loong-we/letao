@@ -84,25 +84,16 @@
       </tr>
      </thead>
      <tbody>
-      <!-- <tr>
-       <td>1</td>
-       <td>itcast</td>
-       <td>15757771111</td>
-       <td>正常</td>
-       <td></td>
-
-      </tr> -->
      </tbody>
     </table>
-
 
    </div>
    <div class="page text-right">
     <ul id="paginator"></ul>
    </div>
   </div>
-  <!-- 退出模态框 -->
-  <div class="modal fade" tabindex="-1">
+  <!-- 登录退出模态框 -->
+  <div class="modal fade" tabindex="-1" id="logModal">
    <div class="modal-dialog modal-sm">
     <div class="modal-content">
      <div class="modal-header">
@@ -123,19 +114,39 @@
     </div><!-- /.modal-content -->
    </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-  <!-- <div class="page">
-   <ul id="pagination"></ul>
-  </div> -->
+
+  <!-- 禁用模态框 -->
+  <div class="modal fade" tabindex="-1" id="forbModal">
+   <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+     <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+      <h4 class="modal-title">温馨提示</h4>
+     </div>
+     <div class="modal-body">
+
+      <p style="color:#A94442">
+       <i class="glyphicon glyphicon-info-sign"></i>
+       您确定要执行这个操作吗？
+      </p>
+     </div>
+     <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      <button type="button" class="btn btn-primary forbSure">确认</button>
+     </div>
+    </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
 
   <script type="text/html" id="userTable">
    {{each rows v i}}
    <tr>
-    <td>{{v.id}}</td>
+    <td>{{(page -1)*size+i+1}}</td>
     <td>{{v.username}}</td>
     <td>{{v.mobile}}</td>
     <td>{{v.isDelete ===1?"正常":"禁用"}}</td>
-    <td>
+    <td data-id="{{v.id}}">
      {{if v.isDelete ===1}}
      <button class="btn btn-danger">禁止</button>
      {{else}}

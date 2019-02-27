@@ -42,9 +42,41 @@
   })
  }
 
- // 给按钮注册点击事件
- $(".btn-danger").on("click",function(){
-  
+ // 给按钮注册点击事件(事件委托)
+ $("tbody").on("click", "button", function () {
+  // if($(this).hasClass("btn-success")){
+  //  $(this).attr("class","btn btn-danger");
+  //  $(this).text("禁用");
+  // }
+  // 弹出层显示
+  $('#forbModal').modal('show');
+  // 获取点击的id
+  console.log($(this).parent());
+  var id = $(this).parent().data("id")
+  // var isDelete = $(this).parent().data("isdelete")
+  var isDelete = $(this).hasClass("btn-success") ? 1 : 0;
+  console.log(id);
+  console.log(isDelete);
+  // 一个按钮上只能绑定一个事件
+  $(".forbSure").off("click").on("click", function () {
+   console.log(132123);
+   $.ajax({
+    type: "post",
+    url: "/user/updateUser",
+    data: {
+     id: id,
+     isDelete: isDelete
+    },
+    dataType: "json",
+    success: function (res) {
+     if (res.success) {
+      // 隐藏模态框，并重新渲染页码
+      $("#forbModal").modal("hide");
+      render()
+     }
+    }
+   })
+  })
  })
 
 
