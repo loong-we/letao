@@ -14,8 +14,28 @@ $(document).ajaxStop(function () {
 
 $(".lt_list").on("click", function () {
  $(".hidebox").toggle(300)
- console.log();
 })
+
+// 在进页面要进行登录状态获取
+// 如果后端响应头中设置了 content-Type：application/json
+// jQuery会自动识别，将返回数据类型，当成json字符串解析成对象
+// 判断进入的页面地址是不是首页，如果不是发送ajax请求
+if (location.href.indexOf("login.html") === -1) {
+ $.ajax({
+  type: "get",
+  url: "/employee/checkRootLogin",
+  success: function (res) {
+   console.log(res);
+   if(res.error==400){
+    // 未登录，需要进行登录拦截
+    location.href = "login.html";
+   }
+  }
+ })
+}
+
+
+
 
 // 注册左移的点击事件
 $(".leftBar").on("click", function () {
